@@ -1,1 +1,485 @@
-/* You can add global styles to this file, and also import other style files */
+:host {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 8px 0;
+}
+
+p {
+  margin: 0;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: #DA4453;
+  background: linear-gradient(to right, #89216B, #DA4453);
+  color: white;
+  font-weight: 600;
+}
+
+.navbar {
+  background: #fc67fa;
+  background: linear-gradient(to right, #fc67fa, #f4c4f3);
+  color: #e6ebf1;
+  top: 60px;
+  position: relative;
+}
+
+.main-container {
+  position: relative;
+  top: 65px;
+  min-height: 78vh;
+
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+.toolbar #twitter-logo {
+  height: 40px;
+  margin: 0 8px;
+}
+
+.toolbar #youtube-logo {
+  height: 40px;
+  margin: 0 1rem;
+}
+
+.toolbar #twitter-logo:hover,
+.toolbar #youtube-logo:hover {
+  opacity: 0.8;
+}
+
+.content {
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: center;
+}
+
+svg.material-icons {
+  height: 24px;
+  width: auto;
+}
+
+svg.material-icons:not(:last-child) {
+  margin-right: 8px;
+}
+
+.card svg.material-icons path {
+  fill: #888;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.card {
+  all: unset;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  height: 40px;
+  width: 200px;
+  margin: 0 8px 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
+}
+
+.card-container .card:not(:last-child) {
+  margin-right: 0;
+}
+
+.card.card-small {
+  height: 16px;
+  width: 168px;
+}
+
+.card-container .card:not(.highlight-card) {
+  cursor: pointer;
+}
+
+.card-container .card:not(.highlight-card):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.card-container .card:not(.highlight-card):hover .material-icons path {
+  fill: rgb(105, 103, 103);
+}
+
+.card.highlight-card {
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  border: none;
+  width: auto;
+  min-width: 30%;
+  position: relative;
+}
+
+.card.card.highlight-card span {
+  margin-left: 60px;
+}
+
+svg#rocket {
+  width: 80px;
+  position: absolute;
+  left: -10px;
+  top: -24px;
+}
+
+svg#rocket-smoke {
+  height: calc(100vh - 95px);
+  position: absolute;
+  top: 10px;
+  right: 180px;
+  z-index: -10;
+}
+
+a,
+a:visited,
+a:hover {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #125699;
+}
+
+
+
+
+.circle-link {
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  margin: 8px;
+  background-color: white;
+  border: 1px solid #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 1s ease-out;
+}
+
+.circle-link:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  background: #DA4453;
+  /* fallback for old browsers */
+  background: linear-gradient(to right, #89216B, #DA4453);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  line-height: 20px;
+}
+
+
+
+.copyright {
+
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  background: #DA4453;
+  /* fallback for old browsers */
+  background: linear-gradient(to right, #89216B, #DA4453);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  border: 1px solid #125699;
+  font-size: 1rem;
+  line-height: 60px;
+}
+
+.redes-sociales {
+  position: relative;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.redes-sociales a {
+  margin: 0 10px;
+  float: right;
+  color: #fff;
+}
+
+.flotaderecha{
+  float: right ;
+  margin-right: 20px;
+}
+
+.container-table{
+  width: 100vw;
+  max-height: 1000px; /* O la altura que necesites */
+  overflow-y: auto; /* Habilita el scroll vertical */
+  background-color: rgb(255, 255, 255);
+  margin-left: 8px;
+  margin-right: 15px;
+  margin-bottom: 120px;
+  font-size: 1.3rem;
+  color: #042d70;
+  padding: 15px;
+  overflow: scroll;
+  z-index: 1000;
+
+}
+
+.table-title {
+
+  margin: 0 40px;
+  color: #042d70;
+  text-align: center;
+}
+
+table {
+  top: 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px 16px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+thead th {
+  background-color: #ccbbbb;
+  position: sticky; /* Hace que el <thead> sea fijo */
+  top: -20px; /* La posición en la que se "pegará" el <thead> */
+  z-index: 10; /* Asegura que esté sobre el contenido */
+}
+
+
+
+
+
+
+.fa-building-user,
+.fa-square-x-twitter .fa-person-walking-arrow-right,
+.fa-people-carry-box,
+.fa-champagne-glasses,
+.fa-envelope,
+.fa-whatsapp,
+.fa-arrow-right-to-bracket,
+.fa-house,
+.fa-square-x-twitter,
+.fa-square-facebook,
+.fa-square-twitter,
+.fa-square-envelope,
+.fa-square-whatsapp,
+.fa-stethoscope .fa-square-instagram,
+.fa-square-instagram {
+  font-size: 2rem;
+  background-color: none;
+  cursor: pointer;
+
+}
+
+.fa-whatsapp {
+  color: #25D366;
+}
+
+/************************************************* ESTILOS TABLAS Y REPORTES *************************************/
+/************************************************* ESTILOS TABLAS Y REPORTES *************************************/
+/************************************************* ESTILOS TABLAS Y REPORTES *************************************/
+
+
+/* .container-table {
+  width: 100vw;
+  background-color: rgb(255, 255, 255);
+  margin-left: 8px;
+  margin-right: 15px;
+  margin-bottom: 120px;
+  font-size: 1.3rem;
+  color: #042d70;
+  padding: 15px;
+  overflow: scroll;
+  z-index: 1000;
+} */
+
+
+
+
+
+.jumbotron {
+  width: 100vw;
+  height: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.page404 {
+  max-width: 800px;
+  max-height: 400px;
+}
+
+
+
+.container-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 40px;
+}
+
+.container-form-title {
+  margin: 10px, 10px;
+  text-align: center;
+  color: #042d70;
+  margin-bottom: 20px;
+
+}
+
+.form-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #888;
+}
+
+input {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #888;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+  /* Aumenta el tamaño */
+  margin-right: 10px;
+  /* Añade un margen para que el texto no quede demasiado cerca */
+}
+
+input[tye="date"]{
+  width: 100%;
+}
+
+.form-select{
+  width: 88%;
+}
+
+.invalid-feedback {
+  color: red;
+}
+
+.is-invalid {
+  border-color: red;
+}
+
+.text-danger{
+   height: 1px;
+}
+
+/* Animaciones */
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+
+  .card-container>*:not(.circle-link),
+  .container-table {
+    font-size: 1rem;
+  }
+
+  .copyright {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: .8rem;
+  }
+
+  .card:not(.highlight-card) {
+    height: 16px;
+    margin: 8px 0;
+  }
+
+  .card.highlight-card span {
+    margin-left: 72px;
+  }
+
+  svg#rocket-smoke {
+    right: 120px;
+    transform: rotate(-5deg);
+  }
+}
+
+@media screen and (max-width: 575px) {
+  svg#rocket-smoke {
+    display: none;
+    visibility: hidden;
+  }
+}

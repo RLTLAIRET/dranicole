@@ -1,0 +1,77 @@
+
+<div class="container-table animated fadeIn">
+  <app-loading *ngIf="isLoading"></app-loading>
+  <button class="flotaderecha" (click)="agregar()" id="registro-ingresar"><i class="fa-solid fa-viruses"></i>   Agregar</button>
+
+  <div id='table-export'>
+
+
+
+    <!-- busqueda -->
+     <div  class="row">
+        <div class="col-md-8">
+          <a (click)="salir()" id='shut-down' class="cerrar-listado">
+            <i class="fa-solid fa-x"></i>
+          </a>
+        </div>
+        <div class="col-md-3">
+          <form   class="d-flex" role="search">
+            <input *ngIf="activabusqueda" name="filtra" [(ngModel)]="filtra" class="form-control " type="search" placeholder="Buscar" aria-label="Search">
+
+           </form>
+        </div>
+        <div class="col-md-1">
+          <button (click)="activabusqueda=!activabusqueda" class="btn btn-outline-primary " type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+           </button>
+        </div>
+
+      </div>
+
+    <!-- fin de busqueda -->
+    <h3 class="table-title">Examenes de Laboratorio</h3>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <!-- <th scope="col">Sel</th> -->
+          <th scope="col">#id</th>
+          <th scope="col">Examen de Laboratorio</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of lista | examenes :[ filtra, campo]; let i to index  ">
+          <!-- <td>{{item.eliminado}}</td> -->
+          <td>{{item.id}}</td>
+          <td>{{item.examen  | slice: -100}}</td>
+          <td >
+            <button (click)="editar(item.id)" class="btn btn-outline-success" type="button">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button (click)="eliminar(item.id,i)" class="btn btn-outline-danger" type="button">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            <button (click)="buscarEnGoogle(item.examen)" class="btn btn-outline-primary" type="button">
+              <i class="fa-brands fa-chrome"></i>
+
+            </button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="botones-list">
+    <!--
+      <i class="fa-solid fa-building-user "></i>   Actualizar</button>
+    <button *ngIf="exportar" (click)="generarXls('table-export')" type="button" id="btn-excel-list"><i
+        class="fas fa-file-excel"></i>  XLS</button>
+    <button *ngIf="!todos && exportar" (click)="generarPdf('table-export')" type="button" id="btn-pdf-list"><i
+        class="fa-solid fa-file-pdf"></i>  PDF </button> -->
+        <button (click)="agregar()" id="registro-ingresar"><i class="fa-solid fa-viruses"></i>   Agregar</button>
+        <button (click)="salir()" id="registro-salir"><i class="fa-sharp fa-solid fa-door-open"></i>  Salir </button>
+  </div>
+
+</div>

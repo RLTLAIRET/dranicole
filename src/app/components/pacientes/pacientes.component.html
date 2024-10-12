@@ -1,0 +1,204 @@
+<div class="container">
+  <h2 class="container-form-title">Datos del Paciente</h2>
+
+
+  <form [formGroup]="form" *ngIf="currentSection < 5">
+    <!-- Sección ############################################################################### 1 -->
+    <div *ngIf="currentSection === 0">
+      <div class="container-datos-personal">
+      <h4>Datos Personales</h4>
+      <div class="form-group">
+        <label class="form-label" for="nombre">Nombre y Apellidos : </label>
+        <input autocomplete="off" class="form-control" class="form-input" id="nombre" type="text" formControlName="nombre"
+        [class.is-invalid]="nombreNoValido">
+        <div *ngIf="nombreNoValido" class="text-danger" >El nombre es Requerido</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="cedula">Documento (C.I/ Pas.) : </label>
+        <input autocomplete="off" class="form-control" class="form-input" id="cedula" type="text" formControlName="cedula"
+        [class.is-invalid]="cedulaNoValido">
+        <div *ngIf="cedulaNoValido" class="text-danger" >El documento es Requerido</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="num_sso">Documento (SSO) : </label>
+        <input autocomplete="off" class="form-control" class="form-input" id="num_sso" type="text" formControlName="num_sso"
+        [class.is-invalid]="ssoNoValido">
+        <div *ngIf="ssoNoValido" class="text-danger" >El documento es SSO es obligatorio </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="direccion1">Direccion #1 :</label>
+        <input autocomplete="off" class="form-control" class="form-input" id="direccion1" type="text" formControlName="direccion1"
+        [class.is-invalid]="Dir1NoValido">
+        <div *ngIf="Dir1NoValido" class="text-danger" >La Direccion es obligatoria</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="direccion2">Direccion #2 : </label>
+        <input autocomplete="off" class="form-control" class="form-input" id="direccion2" type="text" formControlName="direccion2"
+        [class.is-invalid]="Dir1NoValido">
+        <div *ngIf="Dir2NoValido" class="text-danger" >La Direccion es obligatoria </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="estado">Estado / Mucicipio :</label>
+        <input autocomplete="off" class="form-control" class="form-input" id="estado" type="text" formControlName="estado"
+        [class.is-invalid]="Dir1NoValido">
+        <div *ngIf="estadoNoValido" class="text-danger" >El Estado o municipio  es obligatorio </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="correo">Correo Electrónico :</label>
+        <input autocomplete="off" class="form-control" class="form-input" id="correo" type="text" formControlName="correo"
+        [class.is-invalid]="correoNoValido">
+        <div *ngIf="correoNoValido" class="text-danger" >El correo es obligatorio </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="telefono">Teléfono fijo :</label>
+        <input autocomplete="off" class="form-control" class="form-input" id="telefono" type="text" formControlName="telefono"
+        [class.is-invalid]="correoNoValido">
+        <div *ngIf="telefonoNoValido" class="text-danger" >El teléfono es obligatorio </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="celular">Teléfono móvil :</label>
+        <input autocomplete="off" class="form-control" class="form-input" id="celular" type="text" formControlName="celular"
+        [class.is-invalid]="correoNoValido">
+        <div *ngIf="celularNoValido" class="text-danger" >El teléfono es obligatorio </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label form-input" for="sexo">Sexo :</label>
+        <select class="form-select" aria-label="Default select example" formControlName="sexo">
+          <option selected>Sexo</option>
+          <option value="1">Masculino</option>
+          <option value="2">Femenino</option>
+          <option value="3">Otro</option>
+        </select>
+        <!-- <input autocomplete="off" class="form-control" class="form-input" id="sexo" type="text" formControlName="sexo"
+        [class.is-invalid]="correoNoValido"> -->
+        <div *ngIf="sexoNoValido" class="text-danger" >El Sexo es Obligatorio </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="fnacimiento">Fecha nacimiento :</label>
+        <input (blur)="calcularEdad(fecha.value)" autocomplete="off" class="form-control" class="form-input" id="fnacimiento" type="date" formControlName="fnacimiento"
+        [class.is-invalid]="correoNoValido" #fecha>
+        <div *ngIf="fnacimientoNoValido" class="text-danger" >La fecha es obligatorio </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="edad">Edad :</label>
+        <input readonly class="form-control" class="form-input" id="edad" type="text" formControlName="edad">
+
+      </div>
+
+     </div>
+      <!-- boton primera seccion fondo del formulario -->
+      <button id="btn-añadir" (click)="next()">Siguiente</button>
+    </div>
+
+    <!-- Sección ############################################################################### 2 -->
+    <div *ngIf="currentSection === 1">
+       <div class="container-datos-personal">
+        <h4>Datos Familiares o Contacto</h4>
+        <div class="form-group">
+          <label class="form-label" for="nombre">Nombre familiar : </label>
+          <input autocomplete="off" class="form-control" class="form-input" id="nombre" type="text" formControlName="nombre"
+          [class.is-invalid]="nombreNoValido">
+          <div *ngIf="nombreNoValido" class="text-danger" >El nombre es Requerido</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="telefono">Teléfono celular :</label>
+          <input autocomplete="off" class="form-control" class="form-input" id="telefono" type="text" formControlName="telefono"
+          [class.is-invalid]="correoNoValido">
+          <div *ngIf="telefonoNoValido" class="text-danger" >El teléfono es obligatorio </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="telefono">Parentesco :</label>
+          <input autocomplete="off" class="form-control" class="form-input" id="telefono" type="text" formControlName="telefono"
+          [class.is-invalid]="correoNoValido">
+          <div *ngIf="telefonoNoValido" class="text-danger" >El teléfono es obligatorio </div>
+        </div>
+        <div class="form-group">
+
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="nombre">Nombre familiar : </label>
+          <input autocomplete="off" class="form-control" class="form-input" id="nombre" type="text" formControlName="nombre"
+          [class.is-invalid]="nombreNoValido">
+          <div *ngIf="nombreNoValido" class="text-danger" >El nombre es Requerido</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="telefono">Teléfono celular :</label>
+          <input autocomplete="off" class="form-control" class="form-input" id="telefono" type="text" formControlName="telefono"
+          [class.is-invalid]="correoNoValido">
+          <div *ngIf="telefonoNoValido" class="text-danger" >El teléfono es obligatorio </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="telefono">Parentesco :</label>
+          <input autocomplete="off" class="form-control" class="form-input" id="telefono" type="text" formControlName="telefono"
+          [class.is-invalid]="correoNoValido">
+          <div *ngIf="telefonoNoValido" class="text-danger" >El teléfono es obligatorio </div>
+        </div>
+
+
+
+       </div>
+      <button id="btn-cancelar" (click)="prev()">Anterior</button>
+      <button id="btn-añadir" (click)="next()">Siguiente</button>
+    </div>
+
+    <!-- Sección ############################################################################### 3 -->
+    <div *ngIf="currentSection === 2">
+      <h2>Datos del seguro</h2>
+      <input formControlName="campo3" placeholder="Campo 3">
+      <button id="btn-cancelar" (click)="prev()">Anterior</button>
+      <button id="btn-añadir" (click)="next()">Siguiente</button>
+    </div>
+
+    <!-- Sección ############################################################################### 4 -->
+    <div *ngIf="currentSection === 3">
+      <h4>Historial Medico</h4>
+      <div class="container-datos-personal">
+
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Ninguno </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Alergias </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Anemia </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Angina de pecho </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Ansiedad </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Artritis </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Asma </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Fibrilación auricular </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Próstata benigna </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Hipertrofia </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Coágulos de sangre </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Cáncer </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Accidente cerebro vascular </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Enfermedad de las arterias crónicas </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />EPOC </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Enfermedad de Crohn </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Depresión </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Diabetes </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Enfermedad de la vesícula </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />ERGE </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Hepatitis </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Hiperlipidemia </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Hipertensión </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Enfermedad del intestino irritable </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Enfermedad del higado </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Migrañas </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Infarto de miocardio </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Osteoartritis </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Osteoporosis </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />La enfermedad de úlcera péptica </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Enfermedad renal </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Trastorno convulsivo </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Enfermedad de tiroides </label>
+        <label><input type="checkbox" id="cbox1" value="first_checkbox" />Otras </label>
+      </div>
+      <button id="btn-cancelar" (click)="prev()">Anterior</button>
+      <button id="btn-añadir" (click)="next()">Siguiente</button>
+    </div>
+
+    <!-- Sección ############################################################################### 5 -->
+    <div *ngIf="currentSection === 4">
+      <h4>Historia de Salud Mental</h4>
+      <input formControlName="campo5" placeholder="Campo 5">
+      <button id="btn-cancelar" (click)="prev()">Anterior</button>
+      <button id="boton-guardar" (click)="onSubmit()">Enviar</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<div class="container-form">
+  <h2 class="container-form-title">Agregar Patologias</h2>
+
+  <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <!-- Campo Código -->
+    <div class="form-group">
+      <label class="form-label" for="codigo">Código o abrebiatura</label>
+      <input autocomplete="off" class="form-input" id="codigo" type="text" formControlName="codigo" class="form-control"
+      [class.is-invalid]="codigoNoValido">
+      <div *ngIf="codigoNoValido" class="text-danger" >El Descripcion es Requerida</div>
+    </div>
+
+    <!-- Campo Descripción -->
+    <div class="form-group">
+      <label class="form-label" for="enfermedad">Descripción General</label>
+      <textarea autocomplete="off" class="form-input" id="enfermedad" formControlName="enfermedad" class="form-control"
+        [class.is-invalid]="enfermedadNoValida"></textarea>
+       <p *ngIf="enfermedadNoValida" class="text-danger" >El enfermedad es Requerida</p>
+    </div>
+    <!-- Botón Enviar -->
+      <div class="botones-form">
+        <br>
+        <button type="submit" id="registro-ingresar" class="btn btn-primary">Guardar</button>
+        <button (click)="salir()" type="button" id="boton-salir" class="btn btn-primary">Regresar</button>
+      </div>
+
+
+  </form>
+</div>
+

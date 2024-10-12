@@ -25,7 +25,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/botones.css"
             ],
             "scripts": []
           },
@@ -41,6 +42,12 @@
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -65,6 +72,8 @@
             "development": {
               "browserTarget": "clinica:build:development"
             }
+
+
           },
           "defaultConfiguration": "development"
         },
@@ -87,12 +96,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/botones.css"
             ],
             "scripts": []
+
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
